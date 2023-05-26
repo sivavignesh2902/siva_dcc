@@ -23,24 +23,37 @@
     <div class="mainDiv">
         <h1 style="text-align: center;">ToDo App</h1>
     <p style="text-align: center;">Never Miss a Task</p>
-        <form>
+        <form onsubmit="addTodo(event)"> 
             <label for="todo">Enter a todo</label>
             <input type="text" name="todo" id="todo" value = "">
-            <button type="button" onclick="addTodo()" >Add To Do</button>
-    
+            <button type="submit"  >Add To Do</button>
         </form>
         <script type="text/javascript">
-            function addTodo(){
+            var count = 0;
+            var todos = []
+            function addTodo(e){
+                e.preventDefault();
+                var outerdiv = document.createElement('div');
+                outerdiv.id = "doc"+count;
                 var field = document.querySelector("#listOfTodos");
                 var ele = document.createElement('li');
+                ele.style.display = "inline";
+                outerdiv.style.display = "block";
+                var x = document.createElement("INPUT");
+                x.setAttribute("type", "checkbox");
+                outerdiv.appendChild(x);
                 ele.innerHTML = document.querySelector('input').value;
-                field.appendChild(ele);
-            }
+                
+                document.querySelector('input').value = "";
+                ele.style.display = "inline";
+                field.appendChild(outerdiv);
+                outerdiv.appendChild(ele);
+                count += 1;
+            }            
         </script>
         <div>
-            <h2>List Of Todo</h2>
+            <h2>List Of Todos</h2>
             <ul id = "listOfTodos">
-                <li>Todo 1</li>
             </ul>
         </div>
     </div>
