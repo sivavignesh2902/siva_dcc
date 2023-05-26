@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        .mainDiv{
+            margin-right: auto;
+            margin-left: auto;
+            width: 428px;
+            max-height: 450px;
+            overflow: scroll;
+            border: 5px solid grey;
+            padding: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="mainDiv">
+        <h1 style="text-align: center;">ToDo App</h1>
+    <p style="text-align: center;">Never Miss a Task</p>
+        <form>
+            <label for="todo">Enter a todo</label>
+            <input type="text" name="todo" id="todo" value = "">
+            <button type="button" onclick="addTodo()" >Add To Do</button>
+    
+        </form>
+        <script type="text/javascript">
+            function addTodo(){
+                var field = document.querySelector("#listOfTodos");
+                var ele = document.createElement('li');
+                ele.innerHTML = document.querySelector('input').value;
+                field.appendChild(ele);
+            }
+        </script>
+        <div>
+            <h2>List Of Todo</h2>
+            <ul id = "listOfTodos">
+                <li>Todo 1</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
